@@ -46,7 +46,6 @@ public class Product {
     }
 
    @Override
-
    public String toString(){
         return "Product " + "name = " + this.name + "; "
                             + "place = " + this.place + "; "

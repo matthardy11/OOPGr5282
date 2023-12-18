@@ -1,3 +1,4 @@
+import domen.Bottle;
 import domen.Product;
 import service.CoinDispenser;
 import service.Display;
@@ -11,12 +12,14 @@ public class App {
     public static void main(String[] args) {
         Product item1 = new Product("Lays", 0, 100, "snack");
         Product item2 = new Product("Twix", 1, 150, "chocolate");
-        Product item3 = new Product("Nuts", 1, 110, "nuts");
+        Product item3 = new Product("Nuts", 2, 110, "nuts");
+        Product item4 = new Bottle("Cola", 3, 90, "drink", 0.5);
 
         List<Product> assort = new ArrayList<>();
         assort.add(item1);
         assort.add(item2);
         assort.add(item3);
+        assort.add(item4);
 
         Holder hold1 = new Holder();
         CoinDispenser cd1 = new CoinDispenser();

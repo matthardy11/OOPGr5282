@@ -15,4 +15,9 @@ public class Bottle extends Product{
     public void setVolume(double volume) {
         this.volume = volume;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " volume = " + this.volume + ";";
+    }
 }
