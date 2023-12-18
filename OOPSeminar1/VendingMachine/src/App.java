@@ -12,7 +12,6 @@ public class App {
         Product item1 = new Product("Lays", 0, 100, "snack");
         Product item2 = new Product("Twix", 1, 150, "chocolate");
         Product item3 = new Product("Nuts", 1, 110, "nuts");
-        System.out.println(item1);
 
         List<Product> assort = new ArrayList<>();
         assort.add(item1);
@@ -25,5 +24,8 @@ public class App {
 
         VendingMachine machine = new VendingMachine(hold1, cd1, disp1, assort);
 
+        for (Product prod: machine.getProducts()){
+            System.out.println(prod);
+        }
     }
 }
