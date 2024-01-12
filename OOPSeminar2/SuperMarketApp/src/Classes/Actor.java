@@ -1,5 +1,5 @@
 package Classes;
-import Interfaces.iActorBehaviour
+import Interfaces.iActorBehaviour;
 
 public abstract class Actor implements iActorBehaviour{
     protected String name;
