@@ -16,15 +16,15 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
     }
 
     @Override
-    public void acceptToMarket(Actor actor) {
-        System.out.println(actor.getName() + " клиент пришел в магазин ");
+    public void acceptToMarket(iActorBehaviour actor) {
+        System.out.println(actor.getActor().getName() + " клиент пришел в магазин ");
         takeInQueue(actor);
     }
 
     @Override
-    public void takeInQueue(Actor actor) {
-        this.queue.add(actor);
-        System.out.println(actor.getName() + " клиент добавлен в очередь ");
+    public void takeInQueue(iActorBehaviour actor) {
+        this.queue.add(actor.getActor());
+        System.out.println(actor.getActor().getName() + " клиент добавлен в очередь ");
     }
 
     @Override
@@ -45,10 +45,10 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
 
     @Override
     public void giveOrder() {
-        for (Actor actor : queue) {
+        for (iActorBehaviour actor : queue) {
             if (actor.isMakeOrder()) {
                 actor.setTakeOrder(true);
-                System.out.println(actor.getName() + " клиент получил свой заказ ");
+                System.out.println(actor.getActor().getName() + " клиент получил свой заказ ");
             }
         }
     }
@@ -56,10 +56,10 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
     @Override
     public void releaseFromQueue() {
         List<Actor> releaseActors = new ArrayList<>();
-        for (Actor actor : queue) {
+        for (iActorBehaviour actor : queue) {
             if (actor.isTakeOrder()) {
-                releaseActors.add(actor);
-                System.out.println(actor.getName() + " клиент ушел из очереди ");
+                releaseActors.add(actor.getActor());
+                System.out.println(actor.getActor().getName() + " клиент ушел из очереди ");
             }
         }
         releseFromMarket(releaseActors);
@@ -67,10 +67,10 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
 
     @Override
     public void takeOrder() {
-        for (Actor actor : queue) {
+        for (iActorBehaviour actor : queue) {
             if (!actor.isMakeOrder()) {
                 actor.setMakeOrder(true);
-                System.out.println(actor.getName() + " клиент сделал заказ ");
+                System.out.println(actor.getActor().getName() + " клиент сделал заказ ");
 
             }
         }
